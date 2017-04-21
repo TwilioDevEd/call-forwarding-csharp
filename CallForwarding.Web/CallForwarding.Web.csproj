@@ -114,6 +114,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -193,75 +194,37 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Domain\Reservations\Notification.cs" />
-    <Compile Include="Domain\Reservations\Notifier.cs" />
-    <Compile Include="Domain\Reservations\TwilioMessageSender.cs" />
-    <Compile Include="Domain\Twilio\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201510281842434_CreateDatabase.cs" />
-    <Compile Include="Migrations\201510281842434_CreateDatabase.Designer.cs">
-      <DependentUpon>201510281842434_CreateDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\201704201709495_InitialCreate.cs" />
+    <Compile Include="Migrations\201704201709495_InitialCreate.Designer.cs">
+      <DependentUpon>201704201709495_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201510282125527_AddNameToUsers.cs" />
-    <Compile Include="Migrations\201510282125527_AddNameToUsers.Designer.cs">
-      <DependentUpon>201510282125527_AddNameToUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510301945368_CreateReservations.cs" />
-    <Compile Include="Migrations\201510301945368_CreateReservations.Designer.cs">
-      <DependentUpon>201510301945368_CreateReservations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510301956088_CreateVacationProperties.cs" />
-    <Compile Include="Migrations\201510301956088_CreateVacationProperties.Designer.cs">
-      <DependentUpon>201510301956088_CreateVacationProperties.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\CallForwardingContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Repository\ReservationsRepository.cs" />
-    <Compile Include="Models\Reservation.cs" />
-    <Compile Include="Startup.cs" />
+    <Compile Include="Models\Senator.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Zipcode.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\main.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\VacationProperties\Index.cshtml" />
-    <Content Include="Views\VacationProperties\_Form.cshtml" />
-    <Content Include="Views\VacationProperties\Create.cshtml" />
-    <Content Include="Views\VacationProperties\Edit.cshtml" />
-    <Content Include="Views\Reservations\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -270,21 +233,21 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201510281842434_CreateDatabase.resx">
-      <DependentUpon>201510281842434_CreateDatabase.cs</DependentUpon>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201704201709495_InitialCreate.resx">
+      <DependentUpon>201704201709495_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510282125527_AddNameToUsers.resx">
-      <DependentUpon>201510282125527_AddNameToUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510301945368_CreateReservations.resx">
-      <DependentUpon>201510301945368_CreateReservations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510301956088_CreateVacationProperties.resx">
-      <DependentUpon>201510301956088_CreateVacationProperties.cs</DependentUpon>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <None Include="Resources\free-zipcode-database.csv" />
+    <None Include="Resources\senators.json" />
+    <Content Include="senators.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

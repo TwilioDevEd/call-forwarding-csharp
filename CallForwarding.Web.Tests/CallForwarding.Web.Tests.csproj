@@ -137,7 +137,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Controllers\ReservationsControllerTest.cs" />
     <Compile Include="Extensions\ControllerResultTestExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -151,7 +150,9 @@
       <Name>CallForwarding.Web</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
