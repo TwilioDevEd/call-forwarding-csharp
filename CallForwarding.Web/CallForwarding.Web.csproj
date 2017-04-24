@@ -219,9 +219,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\main.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\image\jefferson-memorial.jpg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\site.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -234,7 +234,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\CallCongress\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -255,6 +254,8 @@
     <None Include="Resources\free-zipcode-database.csv" />
     <None Include="Resources\senators.json" />
     <Content Include="senators.json" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
