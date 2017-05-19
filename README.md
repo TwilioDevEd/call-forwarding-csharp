@@ -4,7 +4,7 @@
 
 # Advanced Call Forwarding with Twilio and ASP.NET MVC
 
-[![Build Status](https://travis-ci.org/TwilioDevEd/call-forwarding-csharp.svg?branch=master)](https://travis-ci.org/TwilioDevEd/call-forwarding-csharp)
+[![Build status](https://ci.appveyor.com/api/projects/status/htn0vhetbombyiu5?svg=true)](https://ci.appveyor.com/project/TwilioDevEd/call-forwarding-csharp)
 
 Learn how to use [Twilio](https://www.twilio.com) to forward a series of phone calls to your state senators.
 
