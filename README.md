@@ -23,9 +23,11 @@ To run the app locally, follow these steps:
 1. Run `Update-Database` at [Package Manager
    Console](https://docs.nuget.org/consume/package-manager-console) to execute the migrations.
 
+1. Run the solution. You should see the Call Forward welcome page come up at http://localhost:8080/
+
 1. Expose your application to the internet using [ngrok](https://www.twilio.com/blog/2015/09/6-awesome-reasons-to-use-ngrok-when-testing-webhooks.html). In a separate terminal session, start ngrok with:
     ```bash
-    ngrok http 9292
+    ngrok http --host-header="localhost:8080" 8080
     ```
     Once you have started ngrok, update your TwiML application's voice URL setting to use your ngrok hostname. It will look something like this in your Twilio [console](https://www.twilio.com/console/phone-numbers/):
     ```
@@ -34,7 +36,7 @@ To run the app locally, follow these steps:
 
 1. Run the application.
 
-    Once ngrok is running, open up your browser and go to your ngrok URL.
+    Once ngrok is running, give your Twilio phone number a call.
 
 
 ## Meta

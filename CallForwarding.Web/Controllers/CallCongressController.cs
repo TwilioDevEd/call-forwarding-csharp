@@ -37,15 +37,15 @@ namespace CallForwarding.Web.Controllers
             var voiceResponse = new VoiceResponse();
             if (!string.IsNullOrEmpty(fromState))
             {
-                voiceResponse.Say(string.Format("Thank you for calling congress! It looks like" +
-                                "you\'re calling from {0}." +
-                                "If this is correct, please press 1. Press 2 if" +
-                                "this is not your current state of residence.", fromState));
+                voiceResponse.Say("Thank you for calling congress! It looks like " + 
+                                  $"you\'re calling from {fromState}. " +
+                                  "If this is correct, please press 1. Press 2 if " +
+                                  "this is not your current state of residence.");
                 voiceResponse.Gather(numDigits: 1, action: "/callcongress/setstate", method: "POST");
             }
             else
             {
-                voiceResponse.Say("Thank you for calling Call Congress! If you wish to" +
+                voiceResponse.Say("Thank you for calling Call Congress! If you wish to " +
                                 "call your senators, please enter your 5 - digit zip code.");
                 voiceResponse.Gather(numDigits: 5, action: "/callcongress/statelookup", method: "POST");
             }
@@ -53,7 +53,7 @@ namespace CallForwarding.Web.Controllers
         }
 
         // If our state guess is wrong, prompt user for zip code.
-        [HttpPost]
+        [AcceptVerbs("GET", "POST")]
         public ActionResult CollectZip()
         {
             var voiceResponse = new VoiceResponse();
@@ -106,9 +106,9 @@ namespace CallForwarding.Web.Controllers
             var voiceResponse = new VoiceResponse();
             var firstCall = senators[0];
             var secondCall = senators[1];
-            var sayMessage = string.Format("Connecting you to {0}. " +
-                "After the senator's office ends the call, you will " +
-                "be re-directed to {1}.", firstCall.Name, secondCall.Name);
+            var sayMessage = $"Connecting you to {firstCall.Name}. " +
+                             "After the senator's office ends the call, you will " +
+                             $"be re-directed to {secondCall.Name}.";
 
             voiceResponse.Say(sayMessage);
             voiceResponse.Dial(number: firstCall.Phone,
@@ -124,7 +124,7 @@ namespace CallForwarding.Web.Controllers
             var senator = _senatorsRepository.Find(id);
 
             var voiceResponse = new VoiceResponse();
-            voiceResponse.Say(string.Format("Connecting you to {0}.", senator.Name));
+            voiceResponse.Say($"Connecting you to {senator.Name}.");
             voiceResponse.Dial(number: senator.Phone, action: "/callcongress/goodbye");
 
             return TwiML(voiceResponse);
