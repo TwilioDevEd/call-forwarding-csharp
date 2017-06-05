@@ -14,7 +14,7 @@ To run the app locally, follow these steps:
 
 1. Clone this repository and `cd` into it.
     ```bash
-    git clone git@github.com:TwilioDevEd/call-forwarding-csharp.git
+    git clone https://github.com/TwilioDevEd/call-forwarding-csharp.git
     cd call-forwarding-csharp
     ```
 
