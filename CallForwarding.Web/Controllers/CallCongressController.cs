@@ -1,5 +1,6 @@
 ﻿using CallForwarding.Web.Models;
 using CallForwarding.Web.Models.Repository;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 using Twilio.AspNet.Mvc;
@@ -41,13 +42,13 @@ namespace CallForwarding.Web.Controllers
                                   $"you\'re calling from {fromState}. " +
                                   "If this is correct, please press 1. Press 2 if " +
                                   "this is not your current state of residence.");
-                voiceResponse.Gather(numDigits: 1, action: "/callcongress/setstate", method: "POST");
+                voiceResponse.Gather(numDigits: 1, action: new Uri("/callcongress/setstate", UriKind.Relative), method: "POST");
             }
             else
             {
                 voiceResponse.Say("Thank you for calling Call Congress! If you wish to " +
                                 "call your senators, please enter your 5 - digit zip code.");
-                voiceResponse.Gather(numDigits: 5, action: "/callcongress/statelookup", method: "POST");
+                voiceResponse.Gather(numDigits: 5, action: new Uri("/callcongress/statelookup", UriKind.Relative), method: "POST");
             }
             return TwiML(voiceResponse);
         }
@@ -60,7 +61,7 @@ namespace CallForwarding.Web.Controllers
 
             voiceResponse.Say("If you wish to call your senators, please " +
                     "enter your 5-digit zip code.");
-            voiceResponse.Gather(numDigits: 5, action: "/callcongress/statelookup", method: "POST");
+            voiceResponse.Gather(numDigits: 5, action: new Uri("/callcongress/statelookup", UriKind.Relative), method: "POST");
 
             return TwiML(voiceResponse);
         }
@@ -112,7 +113,7 @@ namespace CallForwarding.Web.Controllers
 
             voiceResponse.Say(sayMessage);
             voiceResponse.Dial(number: firstCall.Phone,
-                action: "/callcongress/callsecondsenator/" + secondCall.Id);
+                action: new Uri($"/callcongress/callsecondsenator/{secondCall.Id}", UriKind.Relative));
 
             return TwiML(voiceResponse);
         }
@@ -125,7 +126,7 @@ namespace CallForwarding.Web.Controllers
 
             var voiceResponse = new VoiceResponse();
             voiceResponse.Say($"Connecting you to {senator.Name}.");
-            voiceResponse.Dial(number: senator.Phone, action: "/callcongress/goodbye");
+            voiceResponse.Dial(number: senator.Phone, action: new Uri("/callcongress/goodbye", UriKind.Relative));
 
             return TwiML(voiceResponse);
         }

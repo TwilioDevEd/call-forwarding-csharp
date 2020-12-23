@@ -207,3 +207,4 @@ FakesAssemblies/
 
 # Project
 CallForwarding.Web/Local.config
+CallForwarding.Web/Scripts/lib/
