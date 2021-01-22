@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallForwarding.Web", "CallForwarding.Web\CallForwarding.Web.csproj", "{98EE4018-F658-4FE8-AAFE-26CABF42B885}"
 EndProject
@@ -9,7 +9,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallForwarding.Web.Tests", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{18335A65-D743-43BB-BEFD-E7C3BB538334}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		.mergify.yml = .mergify.yml
+		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
+		CONTRIBUTING.md = CONTRIBUTING.md
+		LICENSE = LICENSE
 		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{478BE6C5-A646-4A35-AC02-C2C51D0E0DDF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{58BAA0F7-92A4-4545-AA8B-A048045C3DF2}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\NetFx.yml = .github\workflows\NetFx.yml
 	EndProjectSection
 EndProject
 Global
@@ -29,5 +41,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{478BE6C5-A646-4A35-AC02-C2C51D0E0DDF} = {18335A65-D743-43BB-BEFD-E7C3BB538334}
+		{58BAA0F7-92A4-4545-AA8B-A048045C3DF2} = {478BE6C5-A646-4A35-AC02-C2C51D0E0DDF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16CA8793-42F1-49B0-8972-635371A22387}
 	EndGlobalSection
 EndGlobal
